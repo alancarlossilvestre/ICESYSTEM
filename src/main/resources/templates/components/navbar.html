@@ -1,0 +1,68 @@
+<nav th:fragment="nav_bar" class="sidebar close">
+		<header>
+			<div class="image-text">
+				<span class="image">
+					<img src="/images/logo.png" alt="logosb"> 
+				</span>
+				<div class="text header-text">
+					<span class="name">ICE Pasco</span>
+					<span class="profession">Sistema de Votación</span>
+				</div>
+			</div>
+			
+			<i class='bx bx-chevron-right toggle'></i>
+		</header>
+		
+		<div class="menu-bar">
+			<div class="menu">
+				<li class="search-box">
+					<i class='bx bx-search-alt-2 icon'></i>
+					<input type="text" placeholder="Search...">
+					</li>
+				<ul class="menu-links">
+					<li class="nav-link">
+						<a href="/">
+						<i class='bx bx-home-alt icon'></i>
+							<span class="text nav-text">Inicio</span>							
+							</a>
+					</li>					
+					<li class="nav-link">
+						<a  th:href="@{candidatos}">
+						<i class='bx bxs-user-detail icon'></i>
+							<span class="text nav-text">Candidatos</span>
+						</a>
+					</li>
+					<li class="nav-link">
+						<a href="#">
+							<i class="fa-solid fa-check-to-slot icon"></i>	
+							<span class="text nav-text">Votar</span>							
+						</a>
+					</li>
+					<li class="nav-link">
+						<a href="#">
+						<i class='bx bx-badge-check icon' ></i>
+							<span class="text nav-text">Ganadores</span>							
+							</a>
+					</li>
+					<li class="nav-link">
+						<a href="#">
+						<i class='bx bx-home-alt icon'></i>
+							<span class="text nav-text">Home</span>							
+							</a>
+					</li>
+				</ul>
+			</div>
+		<div class="bottom-content">
+					<li class="mode">
+						<div class="moon-sun">
+							<i class="bx bx-moon icon moon"></i>
+							<i class="bx bx-sun icon sun"></i>
+						</div>
+						<span class="mode-text text">Modo Noche</span>
+						<div class="toggle-switch">
+							<span class="switch"></span>
+						</div>
+					</li>
+			</div>
+		</div>
+</nav>

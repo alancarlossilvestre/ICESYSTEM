@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" cotent="IE-edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title >Candidatos ICE</title>
+	<link rel="stylesheet" th:href="@{/desingComponents/navbarC.css}"/>
+	<link rel="stylesheet" th:href="@{/desingComponents/candidatosC.css}"/>
+	<link rel="stylesheet" th:href="@{swiper-bundle.min.css}"/>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<script src="https://kit.fontawesome.com/4dbc21d880.js" crossorigin="anonymous"></script>
+	
+</head>
+
+<body>
+	<nav th:insert="components/navbar :: nav_bar">
+	</nav>
+
+</body>
+
+<body>
+    
+    <th:block th:replace="components/candidatos :: candidatosSection"></th:block>
+</body>
+	<script th:src="@{/scripts/scriptHome.js}"></script>
+	<script th:src="@{/scripts/swiper-bundle.min.js}"></script>
+    <script th:src="@{/scripts/scriptCandidatos.js}"></script>
+
+</html>

@@ -1,0 +1,47 @@
+<!-- formulario_edicion.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- ... -->
+</head>
+<body>
+    <h2>Editar Persona</h2>
+    <form action="/editar" method="post" th:object="${persona}">
+		<input type="hidden" th:field="*{dni}" />
+		<label for="dni">DNI:</label>
+        <input type="text" th:field="*{dni}" required readonly/><br>
+                
+        <label for="nombres">Nombres:</label>
+        <input type="text" th:field="*{nombres}" required/><br>
+
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" th:field="*{apellidos}" required/><br>
+        
+        <label for="edad">edad:</label>
+        <input type="number" th:field="*{edad}" required/><br>
+
+		<label for="sexo">Sexo: </label>
+        <input type="text" th:field="*{sexo}" required/><br>
+        
+        <label for="correo">correo:</label>
+        <input type="text" th:field="*{correo}" required/><br>
+        
+        <label for="direccion">direccion:</label>
+        <input type="text" th:field="*{direccion}" required/><br>
+        
+        <label for="grado_instruccion">grado de instruccion:</label>
+        <input type="text" th:field="*{grado_instruccion}" required/><br> 
+
+        <label for="lugarCongregacion">Sede:</label>
+        <select id="lugarCongregacion" name="lugarCongregacion" required>
+            <option value="1" th:selected="${persona.lugarCongregacion == 1}">Anexo Tupac</option>
+            <option value="2" th:selected="${persona.lugarCongregacion == 2}">Central</option>
+            <option value="3" th:selected="${persona.lugarCongregacion == 3}">Uliachin</option>
+        </select><br>                    
+        
+        <button type="submit">Guardar</button>
+        
+    </form>
+</body>
+</html>
