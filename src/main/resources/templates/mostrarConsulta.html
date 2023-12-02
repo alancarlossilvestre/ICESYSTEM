@@ -15,6 +15,7 @@
 		    <thead class="thead-dark">
 		        <tr>
 					<th scope="col">#</th>
+					<th scope="col">Foto</th>
 					<th scope="col">DNI</th>
 					<th scope="col">Nombres</th>
 		            <th scope="col">Apellidos</th>
@@ -27,14 +28,13 @@
 					<th scope="row">1</th>
 					
 					<td th:text="${resultado.dni}"></td>
+					<td th:text="${resultado.foto}"></td>
 					<td th:text="${resultado.nombres}"></td>
 		            <td th:text="${resultado.apellidos}"></td>
 					<td>
-		        		<a th:href="'/eliminar/' + ${resultado.dni}">Ver Detalles</a>
+		        		<a th:href="'/eliminar/' + ${resultado.dni}">eliminar</a>
 					</td>                
-		    		<td>
-		        		<a class="eliminar" "'/eliminar/' + ${resultado.dni}">Eliminar</a>
-		    		</td> 
+
 		        </tr>
 		    </tbody>
 		</table>

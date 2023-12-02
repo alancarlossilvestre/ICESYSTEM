@@ -8,20 +8,18 @@
     <link rel="stylesheet" th:href="@{/desingComponents/formulario_insertar.css}"/>
     <title>Insertar Candidato</title>
 </head>
-<div>
-
-
+<section>
 	<h1>Insertar Persona</h1>
 	<section class="contenedor_formulario">
 		 <div class="centrar-contenedor">
 			<div class="infromacionGeneralContainer"></div>
-			    <h2>Informacion General</h2>
-		        <form action="/insertarPersona" method="post">
+			    <h2>Información General</h2>
+		        <form action="/insertarPersona" method="post"  th:object="${ipersona}">
 		        
 		        <div class="form-group row">
 		        	<label for="dni" class="col-sm-2 col-form-label">DNI:</label>
 		        	<div class="col-sm-10">
-		        		<input type="text" class="form-control form-control-sm" placeholder="Ingrese DNI" id="dni" name="dni" required><br>
+		        		<input type="number" id="dni" name="dni" class="form-control form-control-sm" placeholder="Ingrese DNI"  required><br>
 		        	</div>
 		        </div>
 		        
@@ -57,110 +55,74 @@
 			    <div class="form-group row">
 			        <label for="correo" class="col-sm-2 col-form-label">Correo:</label>
 			        <div class="col-sm-10">
-			        	<input type="text" class="form-control form-control-sm" aria-describedby="emailHelp" placeholder="Ingrese Email" id="correo" name="correo" required><br>
+			        	<input type="email" class="form-control form-control-sm" aria-describedby="emailHelp" placeholder="Ingrese Email" id="correo" name="correo" required><br>
 			        </div>
 		        </div>
 		        
 			    <div class="form-group row">    
 			        <label for="direccion" class="col-sm-2 col-form-label">Dirección:</label>
 			        <div class="col-sm-10">
-			      	  <input type="email" class="form-control form-control-sm"  placeholder="Ingrese su Direccion"  id="direccion" name="direccion" required><br>
+			      	  <input type="text" class="form-control form-control-sm"  placeholder="Ingrese su Direccion"  id="direccion" name="direccion" required><br>
 			        </div>
 		        </div>
 		 		<div class="form-groupl">
 				 	<label for="grado_instruccion" class="col-form-label">Grado de Instrucción:</label>
 				 	<input type="text" class="form-control form-control-sm" placeholder="Ingrese su Grado de Instruccion Academica" id="grado_instruccion" name="grado_instruccion" required><br>  
 		 		</div>
-		 			     
-		          <div class="form-group l">
-					<label  class="col-form-label" for="lugarCongregacion">Lugar de Congregacion:</label>
-			
-					    <select class="custom-select" id="lugarCongregacion" name="lugarCongregacion" required>
-					        <option value="1">Anexo Tupac</option>
-					        <option value="2">Central</option>
-					        <option value="3">Uliachin</option>
-					    </select><br>
-			  	   </div>
-			  	   <div class="botonGuardar">       
-		         <button class="btn btn-primary" type="submit">Guardar</button>
-		        </div>
-		       </form>
+		 		<div class="form-groupl">
+				  <label for="foto" class="col-form-label">Ingresar Foto:</label>
+				  <input class="form-control form-control-sm" id="foto" type="file">
+				</div>
+		       
 		 </div>
 		 <div class="centrar-contenedor">
 			<div class="infromacionEcelesiasticaContainer"></div>
-			    <h2>Informacion General</h2>
-		        <form action="/insertarPersona" method="post">
+			    <h2>Información Eclesiástica</h2>
 		        
-		        <div class="form-group row">
-		        	<label for="dni" class="col-sm-2 col-form-label">DNI:</label>
-		        	<div class="col-sm-10">
-		        		<input type="text" class="form-control form-control-sm" placeholder="Ingrese DNI" id="dni" name="dni" required><br>
-		        	</div>
+				 <div class="form-group l">
+					<label  class="col-form-label" for="lugarCongregacion">Lugar de Congregación:</label>
+			         <select class="custom-select" id="lugarCongregacion" name="lugarCongregacion" required>
+				        <option selected>Selecciona una Opcion</option>
+				        <option value="1">Iglesia Central</option>
+				        <option value="2">Anexo de Uliachin</option>
+				        <option value="3">Anexo de Tupac</option>
+				    </select><br>
+			  	   </div>
+		        
+		        <div class="mb-3">
+		        	<label for="dni" class="form-label">Instrucción Eclesiástica:</label>
+		       		<input type="text" class="form-control form-control-sm" placeholder="Ingrese Instruccion Eclesiastica" id="instruccionEclesiastica" name="instruccionEclesiastica" required><br>
+		       
 		        </div>
-		        
-		         <div class="form-group row">
-		       		<label for="nombres" class="col-sm-2 col-form-label">Nombres:</label>
-		        	<div class="col-sm-10">
-		        		<input type="text"  class="form-control form-control-sm" placeholder="Ingrese Nombres" id="nombres" name="nombres" required><br>
-		        	</div>
-		        </div>
-		        
-		        <div class="form-group row">
-		        	<label for="apellidos"  class="col-sm-2 col-form-label">Apellidos:</label>
-		        	<div class="col-sm-10">
-		        		<input type="text" class="form-control form-control-sm"  placeholder="Ingrese Apellidos" id="apellidos" name="apellidos" required><br>
-		        	</div>
-		        </div>        
-		        
-		        <div class="form-group row">
-		        	<label for="edad" class="col-sm-2 col-form-label">Edad:</label>
-		        	<div class="col-sm-10">
-		        		<input type="number" class="form-control form-control-sm" placeholder="Ingrese Edad" id="edad" name="edad" required><br>
-		        	</div>
-		        </div>
-		        
-		        <div class="form-group row">   
-					<label for="sexo" class="col-sm-2 col-form-label">Sexo: </label>
-					<div class="col-sm-10">
-				        <input type="text" class="form-control form-control-sm"  placeholder="Ingrese Sexo: Varon o Mujer" id="sexo" name="sexo" required><br>
-			       	</div>
-		        </div>   
-		        
-		        
-			    <div class="form-group row">
-			        <label for="correo" class="col-sm-2 col-form-label">Correo:</label>
-			        <div class="col-sm-10">
-			        	<input type="text" class="form-control form-control-sm" aria-describedby="emailHelp" placeholder="Ingrese Email" id="correo" name="correo" required><br>
-			        </div>
-		        </div>
-		        
-			    <div class="form-group row">    
-			        <label for="direccion" class="col-sm-2 col-form-label">Dirección:</label>
-			        <div class="col-sm-10">
-			      	  <input type="email" class="form-control form-control-sm"  placeholder="Ingrese su Direccion"  id="direccion" name="direccion" required><br>
-			        </div>
-		        </div>
-		 		<div class="form-groupl">
-				 	<label for="grado_instruccion" class="col-form-label">Grado de Instrucción:</label>
-				 	<input type="text" class="form-control form-control-sm" placeholder="Ingrese su Grado de Instruccion Academica" id="grado_instruccion" name="grado_instruccion" required><br>  
-		 		</div>
-		 			     
-		          <div class="form-group l">
-					<label  class="col-form-label" for="lugarCongregacion">Lugar de Congregacion:</label>
+		              
+
+			  	    <div class="form-group l">
+					<label  class="col-form-label" for="areaTrabajo">Area de Trabajo:</label>
 			
-					    <select class="custom-select" id="lugarCongregacion" name="lugarCongregacion" required>
-					        <option value="1">Anexo Tupac</option>
-					        <option value="2">Central</option>
-					        <option value="3">Uliachin</option>
+					    <select class="custom-select" id="areaTrabajo" name="areaTrabajo" required>
+							<option selected>Selecciona una Opcion</option>
+							<option value="1">Ministerio de Alabanza</option>
+					        <option value="2">Ministerio con Jovenes</option>
+					        <option value="3">Ministerio con Damas</option>
+					        <option value="4">Ministerio con Niños</option>
+					        <option value="5">Consolidación</option>
+					        <option value="6">Interseción</option>
+	    					<option value="7">Ujieres</option>
+					        <option value="8">Educación Cristiana</option>
+					        <option value="9">Comunicaciones</option>
+					        <option value="10">Diáconos</option>
+					        <option value="11">Evangelismo y Misiones</option>
+	
 					    </select><br>
 			  	   </div>
-			  	   <div class="botonGuardar">       
-		         <button class="btn btn-primary" type="submit">Guardar</button>
-		        </div>
+			  	 	</section>
+					 <div class="botonGuardar">       
+						  <button class="btn btn-primary" type="submit">Guardar</button>
+				     </div>
 		       </form>
 		 </div>
-		</section>
-	</section>
+</section>
+
 </body>
 <script th:src="@{/scripts/insertarPersona.js}"></script>
 </html>

@@ -1,7 +1,8 @@
 package icewe.com.entity;
 
 public class IPersona {
-	private Integer dni;
+	private byte[] foto;
+	private int dni;
 	private String apellidos;
 	private String nombres;
 	private Integer edad;
@@ -10,8 +11,33 @@ public class IPersona {
 	private String direccion;
 	private String grado_instruccion;
 	private Integer lugarCongregacion;
+	private String instruccionEclesiastica;
+	private Integer AreaTrabajo;
 	
-	
+
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
+	public String getInstruccionEclesiastica() {
+		return instruccionEclesiastica;
+	}
+
+	public void setInstruccionEclesiastica(String instruccionEclesiastica) {
+		this.instruccionEclesiastica = instruccionEclesiastica;
+	}
+
+	public Integer getAreaTrabajo() {
+		return AreaTrabajo;
+	}
+
+	public void setAreaTrabajo(Integer areaTrabajo) {
+		AreaTrabajo = areaTrabajo;
+	}
 
 	public Integer getLugarCongregacion() {
 		return lugarCongregacion;
@@ -29,11 +55,12 @@ public class IPersona {
 		this.grado_instruccion = grado_intruccion;
 	}
 
-	public Integer getDni() {
+
+	public int getDni() {
 		return dni;
 	}
 
-	public void setDni(Integer dni) {
+	public void setDni(int dni) {
 		this.dni = dni;
 	}
 

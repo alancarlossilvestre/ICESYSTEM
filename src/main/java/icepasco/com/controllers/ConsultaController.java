@@ -61,20 +61,22 @@ public class ConsultaController {
     // Método para manejar la inserción de una persona
     @Transactional
     @PostMapping("/insertarPersona")
-    public String insertarPersona(@ModelAttribute IPersona persona) {
+    public String insertarPersona(@ModelAttribute("ipersona") IPersona persona) {
     	System.out.println("Recibiendo solicitud POST en /insertarPersona");
+    	System.out.println("DNI recibido: " + persona.getDni());
     	
     	try {
             // Insertar en la tabla persona
-            String sqlPersona = "INSERT INTO persona (dni, nombres, apellidos) VALUES (?, ?, ?)";
-            jdbcTemplate.update(sqlPersona, persona.getDni(), persona.getNombres(), persona.getApellidos());
+            String sqlPersona = "INSERT INTO persona (dni, nombres, apellidos, foto) VALUES (?, ?, ?, ?)";
+            jdbcTemplate.update(sqlPersona, persona.getDni(), persona.getNombres(), persona.getApellidos(), persona.getFoto());
 
             // Insertar en la tabla detalle_persona
             String sqlDetallePersona = "INSERT INTO detalle_persona (dni, edad, sexo, correo, direccion, grado_instruccion) VALUES (?, ?, ?, ?, ?, ?)";
             jdbcTemplate.update(sqlDetallePersona, persona.getDni(), persona.getEdad(), persona.getSexo(), persona.getCorreo(), persona.getDireccion(), persona.getGrado_instruccion());
             
-            String sqlLugarCongregacion = "INSERT INTO informacion_ecclesiastica (persona_dni, lugarCongregacion) VALUES (?,?)";
-            jdbcTemplate.update(sqlLugarCongregacion, persona.getDni(), persona.getLugarCongregacion());
+            // Insertar iformacion Eclesiastica
+            String sqlLugarCongregacion = "INSERT INTO informacion_ecclesiastica (persona_dni, lugarCongregacion, area_iglesia_id) VALUES (?,?,?)";
+            jdbcTemplate.update(sqlLugarCongregacion, persona.getDni(), persona.getLugarCongregacion(), persona.getAreaTrabajo());
             
             // Después de la inserción, redirige a la URL /resultado para mostrar los resultados actualizados
             return "redirect:/resultado";
