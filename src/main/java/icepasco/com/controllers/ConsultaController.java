@@ -38,9 +38,14 @@ public class ConsultaController {
     public List<ResultadoConsulta> obtenerResultadosConsulta() {
         return consultaService.obtenerResultadosConsulta();
     }
-    @GetMapping("/resultado")
-    public String mostrarResultados(Model  model) {
+    
+    
+    @GetMapping("/candidatos")
+    public String mostrarResultados(Model model) {
+    	
         List<ResultadoConsulta> resultados = consultaService.obtenerResultadosConsulta();
+        
+        
         // Convertir bytes a base64 para la propiedad 'foto'
         resultados.forEach(resultado -> {
             if (resultado.getFoto() != null) {
@@ -48,14 +53,29 @@ public class ConsultaController {
                 resultado.setBase64Foto(base64Foto);
             }
         });
-        model.addAttribute("resultados", resultados);
-        return "mostrarConsulta"; // El nombre del archivo HTML sin la extensión
+        model.addAttribute("resultados",resultados);
+        return "CandidatosView"; // El nombre del archivo HTML sin la extensión
     }
     
+    @GetMapping("/resultados")
+    public String mostrarResultadosVotos(Model model) {
+        List<ResultadoConsulta> resultados = consultaService.obtenerResultadosConsultaV();
+        // Convertir bytes a base64 para la propiedad 'foto'
+        resultados.forEach(resultado -> {
+            if (resultado.getFoto() != null) {
+                String base64Foto = Base64.getEncoder().encodeToString(resultado.getFoto());
+                resultado.setBase64Foto(base64Foto);
+            }
+        });
+        model.addAttribute("resultados",resultados);
+        return "resultadosV"; // El nombre del archivo HTML sin la extensión
+    }
+    
+    
     // Método para mostrar el formulario de inserción
-    @GetMapping("/insertarForm")
+    @GetMapping("/insertarPersona")
     public String mostrarFormularioInsercion() {
-        return "formulario_insertar"; // Nombre del archivo HTML sin la extensión
+        return "insertarPersonaView"; // Nombre del archivo HTML sin la extensión
     }
 
     // Método para manejar la inserción de una persona
@@ -79,12 +99,15 @@ public class ConsultaController {
             jdbcTemplate.update(sqlLugarCongregacion, persona.getDni(), persona.getLugarCongregacion(), persona.getAreaTrabajo());
             
             // Después de la inserción, redirige a la URL /resultado para mostrar los resultados actualizados
-            return "redirect:/resultado";
+            return "redirect:/candidatos";
         } catch (Exception e) {
             // En caso de error, realiza un rollback de la transacción
             throw new RuntimeException("Error al insertar", e);
         }
          
     }
+    
+
+    
 
 }

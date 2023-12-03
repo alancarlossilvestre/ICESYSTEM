@@ -1,0 +1,29 @@
+<div th:fragment="resultadosVotos">	
+	<div class="container">
+		<h2 class="text-center">Resultados</h2>
+		<table class="table">
+		    <thead class="thead-dark">
+		        <tr>
+					<th scope="col">#</th>
+					<th scope="col">Foto</th>
+					<th scope="col">DNI</th>
+					<th scope="col">Nombres</th>
+		            <th scope="col">Apellidos</th>
+		            <th scope="col">N° Votos</th>
+		        </tr>
+		    </thead>
+		    <tbody th:each="resultado, iterStat : ${resultados}">
+		        <tr>
+					<th scope="row", th:text="${iterStat.count}"></th>
+					
+					<td><img th:src="'data:image/png;base64,' + ${resultado.base64Foto}" alt="Foto" style="width: 80px; height: 80px;" /></td>
+					<td th:text="${resultado.dni}"></td>
+					<td th:text="${resultado.nombres}"></td>
+		            <td th:text="${resultado.apellidos}"></td>
+		            <td th:text="${resultado.numero_votos}"></td>
+
+		        </tr>
+		    </tbody>
+		</table>	
+	</div>
+</div>

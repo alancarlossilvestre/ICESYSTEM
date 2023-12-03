@@ -1,0 +1,49 @@
+<div th:fragment="candidatosListSection">	
+	<div class="container">
+		<h2 class="text-center">Lista de Candidatos - Diaconos 2024 - 2026</h2>
+		<table class="table">
+		    <thead class="thead-dark">
+		        <tr>
+					<th scope="col">#</th>
+					<th scope="col">Foto</th>
+					<th scope="col">DNI</th>
+					<th scope="col">Nombres</th>
+		            <th scope="col">Apellidos</th>
+		            <th scope="col">ver Candidato</th>
+		            <th scope="col">Mesa 1</th>
+		            <th scope="col">Mesa 2</th>
+		            <th scope="col">Mesa 3</th>
+		            <th scope="col">Mesa 4</th>
+		            <th scope="col">Votar</th>
+		            <th scope="col">Total Votos</th>
+		            <th scope="col">Acción</th>
+		        </tr>
+		    </thead>
+		    <tbody th:each="resultado, iterStat : ${resultados}">
+		        <tr>
+					<th scope="row", th:text="${iterStat.count}"></th>
+					
+					<td><img th:src="'data:image/png;base64,' + ${resultado.base64Foto}" alt="Foto" style="width: 80px; height: 80px;" /></td>
+					<td th:text="${resultado.dni}"></td>
+					<td th:text="${resultado.nombres}"></td>
+		            <td th:text="${resultado.apellidos}"></td>
+		            <td><button type="button" class="btn btn-outline-info">Información</button> </td>
+		            <td><input type="number" class="mesa" min="0" max="999" style="width: 4em;" /></td>
+		            <td><input type="number"class="mesa" min="0" max="999" style="width: 4em;" /></td>
+		            <td><input type="number" class="mesa" min="0" max="999" style="width: 4em;" /></td>
+		            <td><input type="number" class="mesa" min="0" max="999" style="width: 4em;" /></td>
+		            <td><button type="button" class="btn btn-success" th:attr="onclick='votar(this, \'' + ${resultado.dni} + '\')'" >Votar</button></td>
+		            <td><span class="total"  th:attr="data-dni=${resultado.dni}" style="width: 4em;">0</span></td>
+					<td><a th:href="'/eliminar/' + ${resultado.dni}">eliminar</a></td>                
+
+		        </tr>
+		    </tbody>
+		</table>
+		<a th:href="@{insertarPersona}">
+		<button type="button" class="btn btn-primary"  style="margin-bottom: 30px; margin-top: 30px;">Insertar Candidato</button>
+		</a>
+		<a th:href="@{resultados}">
+		<button type="button" class="btn btn-success">Ver Resultados</button>
+		</a>		
+	</div>
+</div>

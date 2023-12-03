@@ -17,9 +17,9 @@ public class indexController {
 	        return "pruebas";
 	    }
 
-	 @GetMapping("/candidatos")
-	    public String mostrarElecciones(ModelMap model) {
-	        model.addAttribute("contenido", "Contenido de la página de Elecciones");
+	 @GetMapping("/2")
+	    public String mostrarElecciones() {
+	      
 	        return "candidatosView";
 	    }
 }

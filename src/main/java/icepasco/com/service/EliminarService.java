@@ -36,7 +36,8 @@ public class EliminarService {
         // Finalmente, elimina de persona
         jdbcTemplate.update("DELETE FROM persona WHERE dni = ?", dni);
     
-
 	}
+	
+
 	
 }

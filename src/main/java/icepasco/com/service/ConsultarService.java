@@ -20,5 +20,8 @@ public class ConsultarService {
 	    public List<ResultadoConsulta> obtenerResultadosConsulta() {
 	        return consultarRepository.realizarConsulta();
 	    }
-
+	    public List<ResultadoConsulta> obtenerResultadosConsultaV() {
+	        return consultarRepository.realizarConsultaV();
+	    }
+	    
 }

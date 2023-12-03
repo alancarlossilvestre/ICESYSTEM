@@ -1,5 +1,6 @@
 package icewe.com.entity;
 
+
 public class IPersona {
 	private byte[] foto;
 	private int dni;
@@ -13,7 +14,17 @@ public class IPersona {
 	private Integer lugarCongregacion;
 	private String instruccionEclesiastica;
 	private Integer AreaTrabajo;
+	private int totalVotos;
 	
+	
+
+	public int getTotalVotos() {
+		return totalVotos;
+	}
+
+	public void setTotalVotos(int totalVotos) {
+		this.totalVotos = totalVotos;
+	}
 
 	public byte[] getFoto() {
 		return foto;
