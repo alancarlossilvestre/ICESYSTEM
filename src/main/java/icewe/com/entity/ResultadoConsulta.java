@@ -17,6 +17,7 @@ public class ResultadoConsulta {
 	private int AreaTrabajo;
 	private int numero_votos;
 
+
 	public int getNumero_votos() {
 		return numero_votos;
 	}

@@ -1,29 +1,60 @@
-<div th:fragment="resultadosVotos" >	
-	<div class="container" >
-		<h2 class="text-center">Resultados</h2>
-		<table class="table">
-		    <thead class="thead-dark">
-		        <tr>
-					<th scope="col">#</th>
-					<th scope="col">Foto</th>
-					<th scope="col">DNI</th>
-					<th scope="col">Nombres</th>
-		            <th scope="col">Apellidos</th>
-		            <th scope="col">N° Votos</th>
-		        </tr>
-		    </thead>
-		    <tbody th:each="resultado, iterStat : ${resultados}">
-		        <tr>
-					<th scope="row", th:text="${iterStat.count}"></th>
-					
-					<td><img th:src="'data:image/png;base64,' + ${resultado.base64Foto}" alt="Foto" style="width: 80px; height: 80px;" /></td>
-					<td th:text="${resultado.dni}"></td>
-					<td th:text="${resultado.nombres}"></td>
-		            <td th:text="${resultado.apellidos}"></td>
-		            <td th:text="${resultado.numero_votos}"></td>
+<div th:fragment="resultadosVotos" style="max-height: 900px;">
+    <div class="container">
+        <h2 class="text-center">Resultados</h2>
+        
+        <!-- Tabla para varones -->
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">N° Votos</th>
+                </tr>
+            </thead>
+			 <tbody th:each="resultado, iterStat : ${resultados}" th:if="${resultado.sexo == 'Varon'}">
+    <tr th:class="${iterStat.count == 1 or iterStat.count <= 3 or (iterStat.count >= 6 and iterStat.count <= 7)} ? 'table-success' : ''">
+    
+                    <th scope="row" th:text="${iterStat.count}"></th>
+                    <td><img th:src="'data:image/png;base64,' + ${resultado.base64Foto}" alt="Foto" style="width: 80px; height: 80px;" /></td>
+                    <td th:text="${resultado.dni}"></td>
+                    <td th:text="${resultado.nombres}"></td>
+                    <td th:text="${resultado.apellidos}"></td>
+                    <td th:text="${resultado.sexo}"></td>
+                    <td th:text="${resultado.numero_votos}"></td>
+                </tr>
+            </tbody>
+        </table>
 
-		        </tr>
-		    </tbody>
-		</table>	
-	</div>
+        <!-- Tabla para mujeres -->
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">N° Votos</th>
+                </tr>
+            </thead>
+				<tbody th:each="resultado, iterStat : ${resultados}" th:if="${resultado.sexo == 'Mujer'}">
+				    <tr th:class="${iterStat.count == 1 or iterStat.count <= 3 or (iterStat.count >= 6 and iterStat.count <= 7)} ? 'table-success' : ''">
+				  	    
+                    <th scope="row" th:text="${iterStat.count}"></th>
+                    <td><img th:src="'data:image/png;base64,' + ${resultado.base64Foto}" alt="Foto" style="width: 80px; height: 80px;" /></td>
+                    <td th:text="${resultado.dni}"></td>
+                    <td th:text="${resultado.nombres}"></td>
+                    <td th:text="${resultado.apellidos}"></td>
+                    <td th:text="${resultado.sexo}"></td>
+                    <td th:text="${resultado.numero_votos}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 </div>
