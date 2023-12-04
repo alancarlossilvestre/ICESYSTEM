@@ -12,7 +12,7 @@ public class CandidatoPuntajeService {
 
 	    public void guardarPuntaje(String dni, int totalVotos) {
 	        // Verificar si ya existe una entrada para el candidato en la tabla
-	        String sqlSelect = "SELECT COUNT(*) FROM candidatos_puntaje WHERE dni = ?";
+	        String sqlSelect = "UPDATE candidatos_puntaje SET total_votos = ? WHERE dni = ?";
 	        int count = jdbcTemplate.queryForObject(sqlSelect, Integer.class, dni);
 
 	        if (count > 0) {

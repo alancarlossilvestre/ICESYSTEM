@@ -6,7 +6,7 @@
 		        <tr>
 					<th scope="col">#</th>
 					<th scope="col">Foto</th>
-					<!--<th scope="col">DNI</th>-->
+					<th scope="col">DNI</th>
 					<th scope="col">Nombres</th>
 		            <th scope="col">Apellidos</th>
 		            
@@ -24,7 +24,7 @@
 					<th scope="row", th:text="${iterStat.count}"></th>
 					
 					<td><img th:src="'data:image/png;base64,' + ${resultado.base64Foto}" alt="Foto" style="width: 80px; height: 80px;" /></td>
-					<!--<td th:text="${resultado.dni}"></td>-->
+					<td th:text="${resultado.dni}"></td>
 					<td th:text="${resultado.nombres}"></td>
 		            <td th:text="${resultado.apellidos}"></td>
 		            

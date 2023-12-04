@@ -17,7 +17,7 @@ public class EliminarController {
     @GetMapping("/{dni}")
     public String eliminarPersona(@PathVariable String dni) {
         personaService.eliminarPersonaConRelaciones(dni);
-        return "redirect:/candidatosView"; // Redirige a la página de resultados después de eliminar
+        return "redirect:/candidatos"; // Redirige a la página de resultados después de eliminar
     }
 
 

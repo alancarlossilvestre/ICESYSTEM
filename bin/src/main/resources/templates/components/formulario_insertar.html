@@ -1,0 +1,52 @@
+<div th:fragment="formluarioinsertar" style="width: 700px;">	
+	<h2>Ingresar persona</h2>
+	<section class="contenedor_formulario">
+		 <div class="centrar-contenedor">
+			<div class=""></div>
+			    
+		        <form action="/insertarPersona" method="post"  th:object="${ipersona}">
+		        
+		        <div class="form-group row">
+		        	<label for="dni" class="col-sm-2 col-form-label">DNI:</label>
+		        	<div class="col-sm-10">
+		        		<input type="number" id="dni" name="dni" class="form-control form-control-sm" placeholder="Ingrese DNI"  required><br>
+		        	</div>
+		        </div>
+		        
+		         <div class="form-group row">
+		       		<label for="nombres" class="col-sm-2 col-form-label">Nombres:</label>
+		        	<div class="col-sm-10">
+		        		<input type="text"  class="form-control form-control-sm" placeholder="Ingrese Nombres" id="nombres" name="nombres" required><br>
+		        	</div>
+		        </div>
+		        
+		        <div class="form-group row">
+		        	<label for="apellidos"  class="col-sm-2 col-form-label">Apellidos:</label>
+		        	<div class="col-sm-10">
+		        		<input type="text" class="form-control form-control-sm"  placeholder="Ingrese Apellidos" id="apellidos" name="apellidos" required><br>
+		        	</div>
+		        </div>        
+		        
+				 <div class="form-group l">
+					<label  class="col-form-label" for="sexo">Ingrese su Género:</label>
+			         <select class="custom-select" id="sexo" name="sexo" required>
+				        <option selected>Selecciona una Opcion</option>
+				        <option value="Varon">Varon</option>
+				        <option value="Mujer">Mujer</option>
+				    </select><br>
+			  	   </div>		        
+		        
+				  <label for="foto" class="col-form-label">Ingresar Foto:</label>
+				  <input class="form-control form-control-sm" id="foto" name="foto" type="file">
+				</div>
+		       	
+			  	 	</section>
+			
+					 <div class="botonGuardar">       
+						 <a><button class="btn btn-primary" type="submit">Guardar</button>
+						  </a>
+				     </div>
+		       </form>
+		 </div>
+
+</div>
